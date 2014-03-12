@@ -52,7 +52,7 @@ f_splitIntoFiscalYear <- function(row) {
   }
   
   if (endFiscalYear > startFiscalYear) {
-    cutpoint <- chron(paste(startFiscalYear:(endFiscalYear-1), c_startFiscal, sep="-"), format="y-m-d")
+    cutpoint <- chron(paste(startFiscalYear:(endFiscalYear-1), c_newFiscal, sep="-"), format="y-m-d")
     time1 <- cutpoint - chron(format(row$startDate), format="y-m-d")
     time2 <- chron(format(row$endDate), format="y-m-d") - cutpoint
     cost1 <- as.numeric((time1 / (time1 + time2))) * row$cost
@@ -82,3 +82,4 @@ df_summary3
 # Plot the result
 ggplot() + 
   geom_line(data=df_summary3, aes(x=year, y=tot, col=name))
+ggsave("cost_curve.png")
