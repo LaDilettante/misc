@@ -23,7 +23,7 @@ c_numAll <- 10 # No. of time units in each project
 # Define middle by days in the beginning and end
 c_beforeMid <- 10 * 7 
 c_afterMid <- 20 * 7
-c_numMid <- 10 # Divide the middle into smaller units so that they don't go over 3 FY
+c_numMid <- 30 # Divide the middle into smaller units so that they don't go over 3 FY
   
 c_ratioMid <- 0.7 # How much of the total cost belongs to the project's middle
 c_newFiscal <- "10-01" # When is the new fiscal year
@@ -54,8 +54,9 @@ data <- within(data, end <- as.Date.yearmon(end, frac=1))
 # Split a project into units
 f_splitIntoUnit <- function(row) {
   cost <- row[ , "totexp"] / c_numMid
-  startDate <- seq(from = row[, "start"] + c_beforeMid, to = row[, "end"] - c_afterMid, length.out = c_numMid)
-  endDate <- seq(from = row[, "start"] + c_beforeMid, to = row[, "end"] - c_afterMid, length.out = c_numMid)
+  periodDate <- seq(from = row[, "start"] + c_beforeMid, to = row[, "end"] - c_afterMid, length.out = c_numMid + 1)
+  startDate <- periodDate[1:c_numMid]
+  endDate <- periodDate[2:(c_numMid+1)]
   return(data.frame(startDate = startDate, endDate = endDate, cost = cost))
   
 }
@@ -102,9 +103,24 @@ df_summary <- ddply(df_splitIntoFiscalYear, c("award_mech", "year"), summarize, 
 #df_summary <- data.frame(name = rep("all projects", nrow(df_summary)), df_summary)
 #df_summary2 <- ddply(df_splitIntoFiscalYear, c("name", "year"), summarize, tot = sum(cost))
 
+df_summary_all <- ddply(df_summary, c("year"), summarize, tot = sum(tot))
+
 # Preview the result
 df_summary
 
 # Plot the result
-ggplot() + geom_bar(data=df_summary, aes(x=year, y=tot, fill=factor(award_mech)), stat="identity")
-ggsave("cost_curve.png")
+
+f_genPlot <- function(data, fill=NULL) {
+  ggplot() + geom_bar(data=data, aes_string(x="year", y="tot", fill=fill), stat="identity") +
+    scale_y_continuous(labels = trans_format(trans = function(x) x, format = function(x) format(x/10^6))) +
+    labs(y = "Spending (in mil)")
+}
+
+f_genPlot(data=df_summary_all) + labs(title = "Construction yearly spending")
+ggsave("aggregate_plot.png")
+f_genPlot(data=df_summary, fill="factor(award_mech)") + 
+  labs(fill="Award mechanism",
+       title = "Constrution yearly spending (by award mechanism)")
+ggsave("bymech_stack.png")
+f_genPlot(data=df_summary) + facet_wrap(~ award_mech) + labs(title = "Constrution yearly spending (by award mechanism)")
+ggsave("bymech_facet.png")
