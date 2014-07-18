@@ -2,9 +2,9 @@ rm(list=ls())
 toLoad <- c("RMySQL", "plyr")
 lapply(toLoad, library, character.only=TRUE)
 
-# Connection
-conn <- dbConnect(MySQL(), user="aql3", password="gdeltmike97", 
-                  dbname="event_data", host="152.3.32.10")
+# Connection. SUPPLY YOUR CREDENTIALS
+conn <- dbConnect(MySQL(), user="username", password="password", 
+                  dbname="event_data", host="our.host.ip")
 
 quadEvents <- function(cameo.codes, date=NULL, source.country=NULL, target.country=NULL) {
   # Gets relevant event counts for the given CAMEO codes and 
