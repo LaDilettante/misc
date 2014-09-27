@@ -27,6 +27,23 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "malesky/ssrn/upload_articles.py",
+			"settings":
+			{
+				"buffer_size": 3514,
+				"line_ending": "Unix",
+				"name": "from selenium import webdriver"
+			}
+		},
+		{
+			"file": "malesky/uefa/selenium_scrape.py",
+			"settings":
+			{
+				"buffer_size": 3269,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -60,6 +77,8 @@
 	},
 	"file_history":
 	[
+		"/home/anh/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/anh/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex7_CoinFlipping.java",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex5_Dogs.java",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex1_PrintStatements.java",
@@ -100,11 +119,9 @@
 		"/home/anh/projects/learning/learning_d3/chapter_5/index.html",
 		"/home/anh/projects/learning/learning_d3/chapter_12_map/us-ag-productivity-2004.csv",
 		"/home/anh/projects/learning/learning_d3/chapter_10/index.html",
-		"/home/anh/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/anh/.config/sublime-text-2/Packages/User/HTML.sublime-settings",
 		"/home/anh/projects/learning/learning_d3/chapter_8/index.html",
 		"/home/anh/projects/learning/learning_d3/chapter_9/index.html",
-		"/home/anh/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/anh/projects/learning/learning_d3/index.html",
 		"/home/anh/projects/learning/learning_d3/chapter_5/food.csv",
 		"/home/anh/projects/learning/java/java_for_python_programmers/TempConvGUI.java",
@@ -221,8 +238,64 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "malesky/ssrn/upload_articles.py",
+					"settings":
+					{
+						"buffer_size": 3514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2705,
+								2705
+							]
+						],
+						"settings":
+						{
+							"auto_name": "from selenium import webdriver",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1031.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "malesky/uefa/selenium_scrape.py",
+					"settings":
+					{
+						"buffer_size": 3269,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -545,7 +618,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 279.0,
 	"status_bar_visible": true
 }
