@@ -1,3 +1,9 @@
+# Website credential
+/malesky/ssrn/credentials.txt
+
+*.sublime-project
+*.sublime-workspace
+
 .Rproj.user
 .Rhistory
 .RData
