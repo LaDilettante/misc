@@ -29,8 +29,6 @@ common = {k: v for k, v in petition72_dict.items() if k in newpetition_dict}
 petition72_only = {k: v for k, v in petition72_dict.items() if k not in newpetition_dict}
 newpetition_only = {k: v for k, v in newpetition_dict.items() if k not in petition72_dict}
 
-print newpetition_dict
-
 file = open("petitioner_names.txt", "wb")
 file.write("Names that appear in both\n")
 for k, v in common.items():

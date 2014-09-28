@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"petiti",
+				"petition72_dict"
+			],
+			[
+				"new",
+				"newpetition_soup"
+			],
+			[
+				"newpe",
+				"newpetition_content"
+			],
+			[
+				"petition",
+				"petition72_names"
+			],
+			[
 				"newNum",
 				"newNumber2"
 			],
@@ -27,6 +43,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "malesky/scrape_petition.py",
+			"settings":
+			{
+				"buffer_size": 1846,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# verb.coop\nSELECT YEAR(e.event_date) AS year\n  , MONTH(e.event_date) AS month\n  , cSource.ISOA3Code AS source_country\n  , cTarget.ISOA3Code AS target_country\n  , COUNT(*) AS verb_coop\nFROM simple_events e\n  JOIN eventtypes t ON e.eventtype_id = t.eventtype_ID\n  JOIN countries cSource ON e.source_country_id = cSource.id\n  JOIN countries cTarget ON e.target_country_id = cTarget.id\nWHERE SUBSTRING(t.code, 1, 2) IN ('01', '02', '03', '04', '05')\nGROUP BY YEAR(e.event_date), MONTH(e.event_date), e.source_country_id, e.target_country_id\n\n# matl_coop\nSELECT YEAR(e.event_date) AS year\n  , MONTH(e.event_date) AS month\n  , cSource.ISOA3Code AS source_country\n  , cTarget.ISOA3Code AS target_country\n  , COUNT(*) AS matl_coop\nFROM simple_events e\n  JOIN eventtypes t ON e.eventtype_id = t.eventtype_ID\n  JOIN countries cSource ON e.source_country_id = cSource.id\n  JOIN countries cTarget ON e.target_country_id = cTarget.id\nWHERE SUBSTRING(t.code, 1, 2) IN ('06', '07', '08')\nGROUP BY YEAR(e.event_date), MONTH(e.event_date), e.source_country_id, e.target_country_id\n\n# verb_conf\nSELECT YEAR(e.event_date) AS year\n  , MONTH(e.event_date) AS month\n  , cSource.ISOA3Code AS source_country\n  , cTarget.ISOA3Code AS target_country\n  , COUNT(*) AS verb_conf\nFROM simple_events e\n  JOIN eventtypes t ON e.eventtype_id = t.eventtype_ID\n  JOIN countries cSource ON e.source_country_id = cSource.id\n  JOIN countries cTarget ON e.target_country_id = cTarget.id\nWHERE SUBSTRING(t.code, 1, 2) IN ('09', '10', '11', '12', '13')\nGROUP BY YEAR(e.event_date), MONTH(e.event_date), e.source_country_id, e.target_country_id\n\n# matl_conf\nSELECT YEAR(e.event_date) AS year\n  , MONTH(e.event_date) AS month\n  , cSource.ISOA3Code AS source_country\n  , cTarget.ISOA3Code AS target_country\n  , COUNT(*) AS matl_conf\nFROM simple_events e\n  JOIN eventtypes t ON e.eventtype_id = t.eventtype_ID\n  JOIN countries cSource ON e.source_country_id = cSource.id\n  JOIN countries cTarget ON e.target_country_id = cTarget.id\nWHERE SUBSTRING(t.code, 1, 2) IN ('14', '15', '16', '17', '18', '19', '20')\nGROUP BY YEAR(e.event_date), MONTH(e.event_date), e.source_country_id, e.target_country_id\n\n# protest\nSELECT YEAR(e.event_date) AS year\n  , MONTH(e.event_date) AS month\n  , cSource.ISOA3Code AS source_country\n  , cTarget.ISOA3Code AS target_country\n  , COUNT(*) AS protest\nFROM simple_events e\n  JOIN eventtypes t ON e.eventtype_id = t.eventtype_ID\n  JOIN countries cSource ON e.source_country_id = cSource.id\n  JOIN countries cTarget ON e.target_country_id = cTarget.id\nWHERE SUBSTRING(t.code, 1, 2) IN ('14')\nGROUP BY YEAR(e.event_date), MONTH(e.event_date), e.source_country_id, e.target_country_id",
+			"file": "ward/get_monthly_quad_count.sql",
+			"file_size": 0,
+			"file_write_time": 1407700197000000,
+			"settings":
+			{
+				"buffer_size": 2665,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -60,6 +95,9 @@
 	},
 	"file_history":
 	[
+		"/home/anh/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/anh/.config/sublime-text-2/Packages/User/Python.sublime-settings",
+		"/home/anh/projects/misc/misc.sublime-project",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex7_CoinFlipping.java",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex5_Dogs.java",
 		"/home/anh/projects/learning/java/thinking_in_java/ch4_operators/Ex1_PrintStatements.java",
@@ -100,7 +138,6 @@
 		"/home/anh/projects/learning/learning_d3/chapter_5/index.html",
 		"/home/anh/projects/learning/learning_d3/chapter_12_map/us-ag-productivity-2004.csv",
 		"/home/anh/projects/learning/learning_d3/chapter_10/index.html",
-		"/home/anh/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/anh/.config/sublime-text-2/Packages/User/HTML.sublime-settings",
 		"/home/anh/projects/learning/learning_d3/chapter_8/index.html",
 		"/home/anh/projects/learning/learning_d3/chapter_9/index.html",
@@ -221,8 +258,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "malesky/scrape_petition.py",
+					"settings":
+					{
+						"buffer_size": 1846,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1335,
+								1335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ward/get_monthly_quad_count.sql",
+					"settings":
+					{
+						"buffer_size": 2665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								205,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -545,7 +639,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 279.0,
 	"status_bar_visible": true
 }
